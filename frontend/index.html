@@ -7,6 +7,15 @@
     <title>GenAI Loan Advisor</title>
 </head>
 <body>
+    <link rel="stylesheet" href="navbar.css">
+    <nav>
+        <a href="index.html">Home</a> |
+        <a href="setup.html">Setup Guide</a> |
+        <a href="usage.html">Usage Instructions</a> |
+        <a href="code-explanation.html">Code Explanation</a> |
+        <a href="troubleshooting.html">Troubleshooting</a>
+    </nav>
+
     <div class="container">
         <h1>GenAI Loan Advisor</h1>
         <form id="loanForm">
@@ -43,17 +52,17 @@
 
             <label for="currency">Currency:</label>
             <select id="currency" name="currency" required>
+                <option value="INR">INR</option>
                 <option value="USD">USD</option>
                 <option value="EUR">EUR</option>
-                <option value="INR">INR</option>
                 <!-- Add more currencies as needed -->
             </select>
 
             <label for="country">Country:</label>
             <select id="country" name="country" required>
+                <option value="India">India</option>
                 <option value="USA">USA</option>
                 <option value="Canada">Canada</option>
-                <option value="India">India</option>
                 <!-- Add more countries as needed -->
             </select>
 
