@@ -1,0 +1,22 @@
+/* Styles for the navigation bar */
+nav {
+    margin-bottom: 20px;
+    background: #2e2e2e;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: #3e8e41;
+}

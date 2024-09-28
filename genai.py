@@ -9,7 +9,8 @@ def generate_response(user_prompt):
     try:
         response = model.generate_content(user_prompt)
         if response.candidates:
-            return response.candidates[0].content.parts[0].text
+            # Strip out any asterisks and return the cleaned content
+            return response.candidates[0].content.parts[0].text.replace("*", "")
         else:
             return "No response from the bot."
     except Exception as e:

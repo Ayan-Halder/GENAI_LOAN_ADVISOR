@@ -1,10 +1,22 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
 }
 
-form {
-    margin-bottom: 20px;
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: auto; /* Make the container scrollable */
+}
+
+h1 {
+    text-align: center;
 }
 
 label {
@@ -12,26 +24,70 @@ label {
     margin: 10px 0 5px;
 }
 
-input, select {
+input{
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+
+select {
     width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
 }
 
 button {
-    padding: 10px 15px;
+    width: 100%;
+    padding: 12px;
     background-color: #28a745;
     color: white;
     border: none;
+    border-radius: 4px;
     cursor: pointer;
+    font-size: 16px;
 }
 
 button:hover {
     background-color: #218838;
 }
 
-#result {
-    border: 1px solid #ddd;
+.advice-box {
+    border-top: 2px solid #ddd;
     padding: 10px;
     margin-top: 20px;
+}
+
+#adviceOutput {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    max-height: 300px; /* Max height for advice output */
+    overflow-y: auto; /* Scrollable advice box */
+    white-space: pre-wrap;     /* Preserve formatting */
+    /* line-height: 1.6;          Spacing between lines */
+}
+.advice-box {
+    background-color: #f9f9f9; /* Light background */
+    border: 1px solid #ccc;    /* Subtle border */
+    border-radius: 8px;        /* Rounded corners */
+    padding: 20px;             /* Internal spacing */
+    margin-top: 20px;          /* Space above the box */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+}
+
+.advice-section {
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px 0; /* Space between sections */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+}
+
+.advice-section h3 {
+    margin: 0 0 10px; /* Space below the heading */
 }

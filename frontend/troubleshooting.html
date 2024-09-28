@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Troubleshooting - GenAI Loan Advisor</title>
+    <link rel="stylesheet" href="navbar.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .issue {
+            background: #fff;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #d9534f;
+        }
+
+        code {
+            background: #282c34;
+            color: #61dafb;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <link rel="stylesheet" href="navbar.css">
+    <nav>
+        <a href="index.html">Home</a> |
+        <a href="setup.html">Setup Guide</a> |
+        <a href="usage.html">Usage Instructions</a> |
+        <a href="code-explanation.html">Code Explanation</a> |
+        <a href="troubleshooting.html">Troubleshooting</a>
+    </nav>
+
+    <h1>Troubleshooting</h1>
+
+    <div class="issue">
+        <h2>1. FastAPI Server Not Starting</h2>
+        <p>If the FastAPI server does not start, check the following:</p>
+        <ul>
+            <li>Ensure you have activated the virtual environment.</li>
+            <li>Make sure all required packages are installed. You can do this by running:
+                <code>pip install -r requirements.txt</code>
+            </li>
+            <li>Check for syntax errors in your Python files.</li>
+        </ul>
+    </div>
+
+    <div class="issue">
+        <h2>2. CORS Policy Errors</h2>
+        <p>If you encounter CORS policy errors when accessing the frontend:</p>
+        <ul>
+            <li>Verify that your FastAPI app has CORS middleware correctly set up.</li>
+            <li>Ensure that the origin of your frontend is allowed in the CORS settings.</li>
+        </ul>
+    </div>
+
+    <div class="issue">
+        <h2>3. Environment Variables Not Loaded</h2>
+        <p>If your environment variables (e.g., <code>GEMINI_API_KEY</code>) are not being recognized:</p>
+        <ul>
+            <li>Make sure you have a <code>.env</code> file in the root directory with the correct key-value pair.</li>
+            <li>If the <code>.env</code> file is not working, you can export variables directly in your terminal:
+                <pre>
+                # For Linux or macOS
+                export GEMINI_API_KEY='your_api_key_here'
+
+                # For Windows
+                set GEMINI_API_KEY='your_api_key_here'
+                </pre>
+            </li>
+        </ul>
+    </div>
+
+    <div class="issue">
+        <h2>4. No Response from the GenAI API</h2>
+        <p>If the GenAI API is not returning any response:</p>
+        <ul>
+            <li>Ensure that your API key is valid and has the necessary permissions.</li>
+            <li>Check your internet connection.</li>
+            <li>Examine the server logs for any error messages.</li>
+        </ul>
+    </div>
+
+    <div class="issue">
+        <h2>5. Incorrect Data Formatting</h2>
+        <p>If you receive unexpected results or errors related to data formatting:</p>
+        <ul>
+            <li>Ensure that all input data matches the expected types (e.g., numbers for credit score, loan term, etc.).</li>
+            <li>Validate that the JSON structure sent to the backend is correct.</li>
+        </ul>
+    </div>
+
+    <div class="issue">
+        <h2>6. CSS or JavaScript Not Loading</h2>
+        <p>If your styles or scripts are not applying correctly:</p>
+        <ul>
+            <li>Ensure that the paths to your CSS and JavaScript files are correct.</li>
+            <li>Check the console for any errors related to loading resources.</li>
+            <li>Clear your browser cache or use incognito mode to see if changes reflect.</li>
+        </ul>
+    </div>
+
+    <div class="issue">
+        <h2>7. Unexpected Application Behavior</h2>
+        <p>If the application behaves unexpectedly:</p>
+        <ul>
+            <li>Check the browser's console for JavaScript errors.</li>
+            <li>Make sure the backend is running correctly and responding as expected.</li>
+            <li>Review your code for any logical errors or overlooked edge cases.</li>
+        </ul>
+    </div>
+
+    <p>If you encounter issues not listed here, please consult the documentation or reach out to the project maintainers for assistance.</p>
+
+</body>
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GenAI Loan Advisor - Code Explanation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        pre {
+            background-color: #2d2d2d;
+            color: #ffffff;
+            padding: 15px;
+            border: 1px solid #444;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            white-space: pre-wrap;
+        }
+        button.copy-btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 8px 12px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button.copy-btn:hover {
+            background-color: #0056b3;
+        }
+        .note {
+            background: #f1f1f1;
+            border-left: 4px solid #007bff;
+            padding: 10px;
+            margin: 20px 0;
+        }
+        ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <link rel="stylesheet" href="navbar.css">
+    <nav>
+        <a href="index.html">Home</a> |
+        <a href="setup.html">Setup Guide</a> |
+        <a href="usage.html">Usage Instructions</a> |
+        <a href="code-explanation.html">Code Explanation</a> |
+        <a href="troubleshooting.html">Troubleshooting</a>
+    </nav>
+    <div class="section">
+        <h2>Project Overview</h2>
+        <p>The GenAI Loan Advisor project is designed to help users navigate the loan application process by providing tailored advice based on user input. The application combines a user-friendly frontend with a robust backend that leverages a generative AI model to generate insightful recommendations.</p>
+    </div>
+
+    <div class="section">
+        <h2>Tech Stack</h2>
+        <p>Our project utilizes the following technologies:</p>
+        <ul>
+            <li><strong>Frontend:</strong> HTML, CSS, JavaScript</li>
+            <li><strong>Backend:</strong> FastAPI</li>
+            <li><strong>AI Model:</strong> Gemini AI</li>
+        </ul>
+        <p>We chose this tech stack for the following reasons:</p>
+        <ul>
+            <li><strong>FastAPI:</strong> This framework allows for the creation of APIs quickly and efficiently with automatic data validation and serialization. It is built on top of Starlette for the web parts and Pydantic for the data parts, ensuring high performance and easy integration with async capabilities.</li>
+            <li><strong>HTML/CSS/JavaScript:</strong> These technologies are standard for web development, enabling us to create an interactive and responsive user interface.</li>
+            <li><strong>Gemini AI:</strong> This generative AI model provides powerful responses and recommendations based on user queries, enhancing the functionality of our application.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>How FastAPI Works</h2>
+        <p>FastAPI is an asynchronous web framework for building APIs with Python 3.6+ based on standard Python type hints. Here’s how it works in our project:</p>
+        <ul>
+            <li><strong>Routing:</strong> FastAPI allows you to define paths (routes) for your API endpoints. Each route can handle HTTP requests (GET, POST, etc.) and is associated with a specific function that processes the request.</li>
+            <li><strong>Data Validation:</strong> FastAPI uses Pydantic to validate request data. When a user submits a form, FastAPI checks that the data matches the expected types and formats, providing clear error messages if something is wrong.</li>
+            <li><strong>Dependency Injection:</strong> FastAPI supports dependency injection, enabling you to define common dependencies (like database connections or configuration settings) that can be easily reused across your endpoints.</li>
+            <li><strong>Automatic Documentation:</strong> FastAPI automatically generates interactive API documentation using OpenAPI and Swagger UI, making it easy for developers to understand and test the API endpoints.</li>
+        </ul>
+        <p>For more detailed information about FastAPI, you can visit the official documentation: <a href="https://fastapi.tiangolo.com/" target="_blank">FastAPI Documentation</a>.</p>
+    </div>
+
+    <div class="section">
+        <h2>How the Application Works</h2>
+        <p>The application workflow is as follows:</p>
+        <ol>
+            <li>The user fills out the form on the frontend, providing details like loan type, credit score, existing debt, etc.</li>
+            <li>The frontend sends a POST request to the FastAPI backend with the user input data.</li>
+            <li>FastAPI processes the incoming request, validates the data, and then interacts with the Gemini AI model to generate a response based on the provided information.</li>
+            <li>The backend sends the AI-generated advice back to the frontend, which displays it in a user-friendly format.</li>
+        </ol>
+    </div>
+
+    <div class="section">
+        <h2>Code Overview</h2>
+        <p>The project consists of several key files:</p>
+        <ul>
+            <li><strong>frontend/index.html</strong>: The main HTML file for the application.</li>
+            <li><strong>frontend/setup.html</strong>: Setup instructions for the project.</li>
+            <li><strong>frontend/usage.html</strong>: Usage instructions for the application.</li>
+            <li><strong>frontend/code-explanation.html</strong>: This code explanation page.</li>
+            <li><strong>frontend/troubleshooting.html</strong>: Troubleshooting guide for common issues.</li>
+            <li><strong>frontend/styles.css</strong>: Styles for the frontend interface.</li>
+            <li><strong>frontend/script.js</strong>: JavaScript file for handling frontend logic.</li>
+            <li><strong>main.py</strong>: The FastAPI application that handles requests and responses.</li>
+            <li><strong>genai.py</strong>: Contains the logic for interacting with the Gemini AI model.</li>
+            <li><strong>requirements.txt</strong>: Lists the necessary Python packages for the project.</li>
+            <li><strong>.env</strong>: Contains environment variables for sensitive configurations.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>File Explanations</h2>
+
+        <h3>1. frontend/index.html</h3>
+        <p>This file serves as the landing page of the application. It contains a form for users to input their loan-related information. The form uses HTML elements like <code>&lt;input&gt;</code> and <code>&lt;select&gt;</code> to gather data. When submitted, the form data is sent to the FastAPI backend.</pre>
+
+        <h3>2. frontend/setup.html</h3>
+        <p>This page provides detailed instructions on how to set up the project locally. It guides the user through cloning the repository, setting up the environment, and installing dependencies.</p>
+
+        <h3>3. frontend/usage.html</h3>
+        <p>Usage instructions are provided here, detailing how to navigate the application and use its features. It explains what inputs are required and what users can expect from the AI's responses.</p>
+
+        <h3>4. frontend/code-explanation.html</h3>
+        <p>This is the current page, offering a comprehensive overview of the project, its tech stack, and how various components interact with each other.</p>
+
+        <h3>5. frontend/troubleshooting.html</h3>
+        <p>This page addresses common issues users may encounter while running the application, providing potential solutions to resolve them.</p>
+
+        <h3>6. frontend/styles.css</h3>
+        <p>The CSS file styles the HTML elements across the application, enhancing the user experience with a modern look and feel. It ensures responsiveness and visual appeal.</p>
+
+        <h3>7. frontend/script.js</h3>
+        <p>This JavaScript file handles user interactions on the frontend, capturing form data and sending it to the FastAPI backend using AJAX. It also updates the UI based on responses from the backend.</p>
+
+        <h3>8. main.py</h3>
+        <p>This file contains the FastAPI application logic. It defines the API endpoints that the frontend interacts with. Key functions include:</p>
+        <ul>
+            <li><code>@app.post("/api/advice")</code>: This endpoint receives user data, processes it, and sends it to the Gemini AI model for advice generation.</li>
+            <li><code>@app.get("/docs")</code>: Automatically generated documentation for the API.</li>
+        </ul>
+
+        <h3>9. genai.py</h3>
+        <p>This module contains functions for interacting with the Gemini AI model. It handles sending user input to the model and receiving advice, processing the results, and ensuring proper formatting.</p>
+
+        <h3>10. requirements.txt</h3>
+        <p>This file lists all the Python packages that need to be installed to run the project. It includes essential libraries like FastAPI, Pydantic, and any additional dependencies required for the AI model.</p>
+
+        <h3>11. .env</h3>
+        <p>The .env file stores sensitive environment variables such as API keys and configuration settings. It ensures these details are not hard-coded in the source files, enhancing security.</p>
+    </div>
+
+    <div class="section">
+        <h2>Project Structure</h2>
+        <p>The project is structured as follows:</p>
+        <pre>
+        ├── frontend/
+        │   ├── index.html
+        │   ├── setup.html
+        │   ├── usage.html
+        │   ├── code-explanation.html
+        │   ├── troubleshooting.html
+        │   ├── styles.css
+        │   └── script.js
+        ├── main.py
+        ├── genai.py
+        ├── requirements.txt
+        └── .env
+        </pre>
+        <p>This structure separates the frontend and backend components, making it easier to manage the codebase.</p>
+    </div>
+
+    <div class="section">
+        <h2>Conclusion</h2>
+        <p>The GenAI Loan Advisor project showcases the power of modern web technologies and AI to provide valuable insights in the loan application process. By leveraging FastAPI for the backend and a responsive frontend, we aim to create a seamless user experience.</p>
+    </div>
+
+    <div class="container">
+        <h1>GenAI Loan Advisor - Code Explanation</h1>
+        <p>This page provides a detailed breakdown of each component in the GenAI Loan Advisor project. The following files form the backbone of the application:</p>
+        
+        <h2>1. `index.html`</h2>
+        <p>The main HTML file contains the user interface for the frontend. It has a form where users can input their loan details. Key elements include:</p>
+        <ul>
+            <li>Text inputs for user details (Name, Age, Annual Income, etc.).</li>
+            <li>Dropdowns for selecting loan type and currency.</li>
+            <li>A submission button to send the data to the backend.</li>
+        </ul>
+        <pre>
+&lt;form id=&quot;loanForm&quot;&gt;
+  &lt;label for=&quot;name&quot;&gt;Name:&lt;/label&gt;
+  &lt;input type=&quot;text&quot; id=&quot;name&quot; name=&quot;name&quot; required&gt;
+
+  &lt;label for=&quot;age&quot;&gt;Age:&lt;/label&gt;
+  &lt;input type=&quot;number&quot; id=&quot;age&quot; name=&quot;age&quot; required&gt;
+  ...
+&lt;/form&gt;
+        </pre>
+        <button class="copy-btn" onclick="copyCode(`<form id='loanForm'><label for='name'>Name:</label><input type='text' id='name' name='name' required><label for='age'>Age:</label><input type='number' id='age' name='age' required>...</form>`)">Copy Snippet</button>
+        
+        <h2>2. `styles.css`</h2>
+        <p>This stylesheet controls the visual aesthetics of the page. It includes styling for form fields, buttons, and the overall layout.</p>
+        <pre>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+.container {
+  max-width: 600px;
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+}
+button {
+  padding: 10px;
+  border-radius: 4px;
+}
+        </pre>
+        <button class="copy-btn" onclick="copyCode(`body { font-family: Arial, sans-serif; background-color: #f4f4f4; } .container { max-width: 600px; background: white; border-radius: 8px; padding: 20px; } button { padding: 10px; border-radius: 4px; }`)">Copy Snippet</button>
+        
+        <h2>3. `script.js`</h2>
+        <p>The JavaScript file handles form submissions and sends the data to the backend. It uses the Fetch API to send a POST request and display the AI’s response.</p>
+        <pre>
+document.getElementById("loanForm").addEventListener("submit", async function(event) {
+  event.preventDefault();
+  const formData = new FormData(this);
+  const data = { ... };
+  
+  const response = await fetch("/generate-advice", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data)
+  });
+  const result = await response.json();
+  document.getElementById("adviceOutput").innerHTML = result.advice;
+});
+        </pre>
+        <button class="copy-btn" onclick="copyCode(`document.getElementById('loanForm').addEventListener('submit', async function(event) { event.preventDefault(); const formData = new FormData(this); const data = { ... }; const response = await fetch('/generate-advice', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) }); const result = await response.json(); document.getElementById('adviceOutput').innerHTML = result.advice; });`)">Copy Snippet</button>
+        
+        <h2>4. `main.py`</h2>
+        <p>The FastAPI backend handles HTTP requests and serves the frontend files. It includes endpoints to receive user input and process AI-generated responses.</p>
+        <pre>
+from fastapi import FastAPI
+from genai import generate_response
+
+app = FastAPI()
+
+@app.post("/generate-advice")
+async def generate_advice(data: LoanData):
+  user_prompt = f&quot;User prompt data: {data}&quot;
+  advice = generate_response(user_prompt)
+  return {"advice": advice}
+        </pre>
+        <button class="copy-btn" onclick="copyCode(`from fastapi import FastAPI from genai import generate_response app = FastAPI() @app.post('/generate-advice') async def generate_advice(data: LoanData): user_prompt = f'User prompt data: {data}' advice = generate_response(user_prompt) return {'advice': advice}`)">Copy Snippet</button>
+
+        <h2>5. `genai.py`</h2>
+        <p>Handles interaction with the AI model using the Google Generative AI library. It defines the core `generate_response` function that processes user input.</p>
+        <pre>
+import google.generativeai as genai
+
+def generate_response(user_prompt):
+  response = genai.model.generate_content(user_prompt)
+  return response.candidates[0].content.parts[0].text if response.candidates else &quot;No response&quot;
+        </pre>
+        <button class="copy-btn" onclick="copyCode(`import google.generativeai as genai def generate_response(user_prompt): response = genai.model.generate_content(user_prompt) return response.candidates[0].content.parts[0].text if response.candidates else 'No response'`)">Copy Snippet</button>
+    </div>
+
+    <script>
+        function copyCode(code) {
+            const tempElement = document.createElement('textarea');
+            tempElement.value = code;
+            document.body.appendChild(tempElement);
+            tempElement.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempElement);
+            alert('Code copied to clipboard!');
+        }
+    </script>
+</body>
+</html>
