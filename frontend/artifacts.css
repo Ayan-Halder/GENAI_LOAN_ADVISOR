@@ -1,0 +1,39 @@
+/* artifacts.css */
+body {
+    position: relative; /* Ensure body is positioned to contain absolute elements */
+    overflow: hidden;  /* Prevent scrolling from background artifacts */
+}
+
+.artifact {
+    position: absolute;
+    opacity: 0.3; /* Slightly transparent for a better visual effect */
+    z-index: -1; /* Send artifacts to the background */
+    animation: float 10s ease-in-out infinite; /* Add float animation */
+}
+
+.artifact-circle {
+    width: 200px;
+    height: 200px;
+    background-color: rgba(92, 194, 92, 0.6);
+    border-radius: 50%;
+}
+
+.artifact-rectangle {
+    width: 180px;
+    height: 120px;
+    background-color: rgba(0, 115, 255, 0.6);
+}
+
+.artifact-triangle {
+    width: 0;
+    height: 0;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 50px solid rgba(0, 170, 255, 0.6);
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0); }
+}
