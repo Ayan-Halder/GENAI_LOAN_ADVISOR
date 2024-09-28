@@ -3,34 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/frontend/styles.css"> <!-- Update this line -->
     <title>GenAI Loan Advisor</title>
-    <link rel="stylesheet" href="/frontend/styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>GenAI Loan Advisor</h1>
-        <form id="loan-form">
-            <label for="name">Your Name:</label>
-            <input type="text" id="name" required placeholder="Enter your name">
-            <label for="loanAmount">Loan Amount:</label>
-            <input type="number" id="loanAmount" required placeholder="Enter loan amount">
-            <label for="loanPurpose">Purpose of Loan:</label>
-            <select id="loanPurpose" required>
-                <option value="">Select Purpose</option>
-                <option value="home_improvement">Home Improvement</option>
-                <option value="debt_consolidation">Debt Consolidation</option>
-                <option value="medical_expenses">Medical Expenses</option>
-                <option value="education">Education</option>
-                <option value="business">Business</option>
-                <option value="other">Other</option>
-            </select>
-            <input type="text" id="customPurpose" placeholder="If other, please specify">
-            <label for="income">Annual Income:</label>
-            <input type="number" id="income" required placeholder="Enter your annual income">
-            <button type="submit">Get Advice</button>
-        </form>
-        <div id="response-container" class="response-container"></div>
-    </div>
-    <script src="/frontend/script.js"></script>
+    <h1>GenAI Loan Advisor</h1>
+    <form id="loanForm">
+        <label for="loanType">Loan Type:</label>
+        <select id="loanType" name="loanType" required>
+            <option value="Home Loan">Home Loan</option>
+            <option value="Student Loan">Student Loan</option>
+            <option value="Personal Loan">Personal Loan</option>
+        </select>
+        <br>
+        <label for="creditScore">Credit Score:</label>
+        <input type="number" id="creditScore" name="creditScore" required>
+        <br>
+        <label for="loanTerm">Loan Term (years):</label>
+        <input type="number" id="loanTerm" name="loanTerm" required>
+        <br>
+        <label for="existingDebt">Existing Debt:</label>
+        <input type="number" id="existingDebt" name="existingDebt" required>
+        <br>
+        <label for="preferredInstitution">Preferred Lending Institution:</label>
+        <input type="text" id="preferredInstitution" name="preferredInstitution" required>
+        <br>
+        <label for="annualIncome">Annual Income:</label>
+        <input type="number" id="annualIncome" name="annualIncome" required>
+        <br>
+        <label for="loanAmountRequested">Loan Amount Requested:</label>
+        <input type="number" id="loanAmountRequested" name="loanAmountRequested" required>
+        <br>
+        <button type="submit">Get Advice</button>
+    </form>
+
+    <h2>Advice:</h2>
+    <p id="adviceOutput"></p>
+
+    <script src="/frontend/script.js"></script> <!-- Update this line -->
 </body>
 </html>
