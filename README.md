@@ -99,10 +99,8 @@ For detailed documentation on the setup, usage, and code explanation, please vis
 If you encounter any issues while setting up or running the application, refer to the [Troubleshooting Guide](frontend/troubleshooting.html) for solutions to common problems.
 
 ## Contributing
-We welcome contributions! If you'd like to contribute to the GenAI Loan Advisor project, please fork the repository and submit a pull request with your changes.
+I welcome contributions! If you'd like to contribute to the GenAI Loan Advisor project, please fork the repository and submit a pull request with your changes.
 
-## License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ---
 
