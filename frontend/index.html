@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GenAI Loan Advisor</title>
+    <link rel="stylesheet" href="/frontend/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>GenAI Loan Advisor</h1>
+        <form id="loan-form">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" required placeholder="Enter your name">
+            <label for="loanAmount">Loan Amount:</label>
+            <input type="number" id="loanAmount" required placeholder="Enter loan amount">
+            <label for="loanPurpose">Purpose of Loan:</label>
+            <select id="loanPurpose" required>
+                <option value="">Select Purpose</option>
+                <option value="home_improvement">Home Improvement</option>
+                <option value="debt_consolidation">Debt Consolidation</option>
+                <option value="medical_expenses">Medical Expenses</option>
+                <option value="education">Education</option>
+                <option value="business">Business</option>
+                <option value="other">Other</option>
+            </select>
+            <input type="text" id="customPurpose" placeholder="If other, please specify">
+            <label for="income">Annual Income:</label>
+            <input type="number" id="income" required placeholder="Enter your annual income">
+            <button type="submit">Get Advice</button>
+        </form>
+        <div id="response-container" class="response-container"></div>
+    </div>
+    <script src="/frontend/script.js"></script>
+</body>
+</html>
