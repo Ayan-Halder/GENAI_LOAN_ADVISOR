@@ -1,0 +1,36 @@
+# Virtual Environment
+venv/
+env/
+*.pyc
+__pycache__/
+
+# IDE Configurations
+.idea/
+.vscode/
+
+# Environment Variables
+.env
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Logs and Temporary Files
+*.log
+*.tmp
+*.bak
+
+# Python-related files
+*.egg-info/
+
+# Frontend Build Files
+node_modules/
+dist/
+build/
+
+# Ignore the API Key (if stored locally)
+api_key.txt
+
+# Avoid adding credentials or private keys
+*.pem
+*.key
